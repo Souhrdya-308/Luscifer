@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVO_ARG - Food Resource Production</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: olivedrab;
+        }
+
+        nav {
+            background-color: #485c5f;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #a3c6c9;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color:  #f4f4f4;
+        }
+
+        section {
+           
+            background-color: #fff;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #485c5f;
+            color: #fff;
+        }
+
+        /* Animation */
+        @keyframes slideInOut {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-10px);
+            }
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #a3c6c9;
+        }
+
+        .home{
+            background-image: url("https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg?auto=compress&cs=tinysrgb&w=1200&h=950&dpr=1");
+            background-size:cover;
+            width:1560px;
+            height:650px;
+
+            text-align:center;
+            font-size:20px;
+            color:#0f607b;
+
+        }
+        .hh{
+            text-align: center;
+            font-size:80px;
+            color:#0f607b;
+        }
+         #agriculture{
+            background-image:linear-gradient(rgba(174, 173, 173, 0.8),rgba(155, 153, 153, 0.8)), url("https://thumbs.dreamstime.com/b/agriculture-vegetable-field-landscape-view-freshly-growing-84090367.jpg");
+            background-size:cover;
+            background-repeat:no-repeat;
+        }
+        h3{
+            font-weight:700px;
+        }
+        li{
+            font-weight:450px;
+        }
+        .header {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 32px;
+  background-color:#0a0a23 ;
+  color: #fff;
+  border-bottom: 4px solid #fdb347;
+  font-size:20px;
+
+}
+        .agricu {
+            padding:50px;
+            font-size:18px;
+            line-height:32.5px;
+            
+        }
+        #livestock{
+            background-image: linear-gradient(rgba(174, 173, 173, 0.6),rgba(155, 153, 153, 0.6)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5VfSYbhN4As25cyzo6nOBA43x9nFvzdibwOkxW6DbMP_qxeXhKdUoXDcJ8vWrf-OEjQ&usqp=CAU");
+            background-size:cover;
+            background-repeat:no-repeat;
+        }
+
+        .live {
+            padding:50px;
+            /*background-image:linear-gradient(rgba(174, 173, 173, 0.6),rgba(155, 153, 153, 0.6)), ulr("https://images.unsplash.com/photo-1573865174887-dd85bc60e3e5?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZhcm0lMjBhbmltYWx8ZW58MHx8MHx8fDA%3D");
+*/          font-size: 18px;
+            line-height: 40px;
+        }
+            .aqua {
+                line-height:29px;
+                font-size:18px;
+                padding:50px;
+                background-size:cover;
+                background-repeat:no-repeat;
+                background-image: linear-gradient(rgba(174, 173, 173, 0.6),rgba(155, 153, 153, 0.6)), url("https://static.vecteezy.com/system/resources/previews/000/273/915/non_2x/ocean-background-vector.jpg");
+            }   
+            img{
+                margin-left: 32.5%;
+                height:250px;
+                width:500px;
+            }  
+            .pros{
+                background-image: linear-gradient(rgba(174, 173, 173, 0.6),rgba(155, 153, 153, 0.6)), url("https://t3.ftcdn.net/jpg/02/54/88/82/360_F_254888225_TrChEKZv4F5BgYrQGfEWXY7KUQbXgrIz.jpg");
+                padding:50px;
+                background-size:cover;
+                background-repeat:no-repeat;
+                line-height:32.5px;
+                font-size:18px
+            }
+            .dist{
+                font-size:18px;
+                line-height:32px;
+                padding:50px;
+                background-image:  linear-gradient(rgba(223, 214, 214, 0.75),rgba(248, 243, 243, 0.75)), url("https://t4.ftcdn.net/jpg/05/52/46/59/360_F_552465941_fSdaL7sxb6K750ZcbiJOuZb70VdvDFNN.jpg");
+                background-size:cover;
+                background-repeat:no-repeat;
+            } 
+            .law{
+                padding:50px;
+                line-height:32px;
+                font-size:18px;
+                background-image: linear-gradient(rgba(225, 209, 209, 0.3),rgba(208, 196, 196, 0.3)), url("data:image/jpeg;base64,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");
+                background-size:cover;
+                background-repeat:no-repeat;
+
+            }
+            .reac{
+                padding:50px;
+                font-size:18px;
+                line-height:32px;
+                background-image:  linear-gradient(rgba(237, 210, 210, 0.6),rgba(228, 210, 210, 0.6)), url("data:image/jpeg;base64,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");
+                background-size:cover;
+                background-repeat:no-repeat;
+            }
+            .mor{
+                font-size:18px;
+                line-height:32px;
+                padding:50px;
+
+            }
+
+
+
+         
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('agriculture')">Agriculture</a>
+        <a onclick="showPage('livestock')">Livestock Farming</a>
+        <a onclick="showPage('aquaculture')">Aquaculture</a>
+        <a onclick="showPage('processing')">Post-Harvest</a>
+        <a onclick="showPage('distribution')">Distribution</a>
+        <a onclick="showPage('regulation')">Regulation</a>
+        <a onclick="showPage('research')">Research</a>
+        <a onclick="showPage('morden')">Mordern Farming Tech</a>
+        <a onclick="showPage('foodproduction')"><a href="https://yamini-soni.github.io/WEBCHE110/">Food Production</a></a>
+
+       
+    </nav>
+
+   
+    <header>
+        <h1 id="main-heading">EVOARG - Food Resource Production</h1>
+    </header>
+
+    
+    <section id="home">
+        <div class="home">
+            <p></p>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+        <h1 class ="hh" >Welcome to EVO_ARG</h2>
+        
+        <p>"Welcome to EVO_ARG,your ultimate destination for a journey that explores the tapestry of food resources and production.</p><p> Delve into the world where the art of cultivation and  sustainable practices. Join us in unravelling the story behind every ingredient ,from farm to table. </p>
+            
+        </div>
+        </section>
+
+    
+     <section id="agriculture"  >
+        
+            <header class ="header">
+        <h2>AGRICULTURE</h2>
+        </header>
+        <div class="agricu">
+        <p>Agriculture is the practice of cultivating soil, producing crops, and raising livestock for human use. It involves a combination of various activities such as planting, harvesting, irrigation, pest control, and animal husbandry. Agriculture is essential for providing food, fiber, and other materials necessary for human survival and development.</p>
+        
+        
+        <h3>Types of Farming:</h3>
+        <ul>
+            <li><b>Subsistence Farming:</b> The primary goal is to produce enough food to meet the needs of the farmer's family.</li>
+            <li><b>Commercial Farming:</b>The focus is on producing crops or raising livestock for sale in the market.
+            </li>
+            <li><b>Organic Farming:</b>Involves the use of natural methods and avoids synthetic pesticides and fertilizers.</li>
+            <li><b>Intensive Farming:</b>Involves maximizing yield from a given piece of land through various means like high-input farming, using technology, and often relying heavily on chemical inputs.</li>
+            <li><b>Extensive Farming:</b>Involves large-scale cultivation with lower inputs per unit of land, typically practiced in areas with abundant land.
+            </li>
+            <li><b>Mixed Farming:</b>Involves both crop cultivation and animal husbandry on the same farm.
+            </li>
+            <li><b>Dryland Farming:</b>Conducted in regions where water is scarce, and crops are dependent on rainfall.</li>
+            <li><b>Wetland Farming: </b> Involves cultivation in areas with ample water supply, often through irrigation.</li>
+            <li><b>Agroforestry:</b>Integrates trees and shrubs into agricultural systems for environmental and economic benefits.</li>
+
+            
+        </ul>
+       
+        <h3>Commonly Used Fertilizers in India:</h3>
+        <p>Indian farmers use a variety of fertilizers to enhance soil fertility and improve crop yields. The most commonly used types include:</p>
+
+        <ul>
+            <li><b>Urea:</b> A nitrogenous fertilizer widely used for crops like rice and wheat.</li>
+            <li><b>Diammonium Phosphate (DAP):</b>Contains phosphorous and nitrogen, used for a variety of crops.
+            </li>
+            <li><b>Muriate of Potash (MOP):</b> Contains phosphorous and is often used for crops like oilseeds and pulses</li>
+            <li><b>Ammonium Sulphate:</b> Contains nitrogen and sulfur, used for crops that require these nutrients.</li>
+            <li><b>Potassium Nitrate:</b> Provides a mix of nitrogen and potassium.</li>
+            <li><b>Biofertilizers:</b>Increasingly used to enhance soil fertility using living organisms, such as nitrogen-fixing bacteria.</li>
+           
+        </ul>
+    </div>
+    </section>
+
+  
+    <section id="livestock">
+        <header class="header">
+        <h2>Livestock Farming</h2>
+        </header>
+        <div class="live">
+        <p>Livestock farming is a broad category that involves the breeding and raising of animals for various purposes, such as food (meat, milk, eggs), fiber (wool), and other by-products.</p>
+        
+        <h3>Types of Livestock Farming:</h3>
+        <ul>
+            <li><b>Cattle Farming:</b> Involves the raising of cattle for meat (beef) or dairy production.</li>
+            <li><b>Poultry Farming:</b>Involves the breeding and raising of chickens, ducks, turkeys, and other birds for meat (poultry) and eggs.</li>
+            <li><b>Sheep Farming:</b>Primarily for meat (lamb or mutton) and wool production.
+            </li>
+            <li><b>Pig Farming:</b>Involves raising pigs for pork production.</li>
+            <li><b>Goat Farming:</b> For meat (chevon or goat meat) and milk production.
+            </li>
+            <li><b>Aquaculture: </b> The farming of aquatic organisms such as fish and shrimp for food.</li>
+            <li><b>Beekeeping:</b> he cultivation of bees for honey and other hive products.</li>
+            
+            
+        </ul>
+        
+        <h3>Common Practices in Livestock Farming:</h3>
+        <ul>
+            <li><b>Feeding and Nutrition:</b> Providing animals with a balanced diet to ensure their health and productivity.</li>
+            
+            <li><b>Housing and Shelter:</b>Creating suitable living environments that protect animals from harsh weather conditions and promote their well-being.</li>
+            <li><b>Healthcare:</b> Regular veterinary care, vaccinations, and disease prevention measures to maintain the health of the livestock.</li>
+            <li><b>Breeding and Reproduction:</b> Managing the breeding process to improve desirable traits and ensure a steady supply of animals.</li>
+            <li><b>Waste Management:</b> Proper disposal or use of animal waste to prevent environmental pollution and utilize it as a resource when possible.</li>
+            <li><b>Record Keeping:</b>Keeping track of animal health, breeding, and other relevant data for efficient management and decision-making.</li>
+            <li><b>Animal Welfare:</b> Ensuring that animals are treated humanely and ethically, meeting their physical and behavioral needs.</li>
+            <li><b>Technology Integration:</b> Incorporating modern technologies such as automated feeding systems, monitoring devices, and genetic advancements to enhance efficiency</li>
+        </div>
+        </ul>
+    </section>
+
+
+    
+    <section id="aquaculture">
+       
+        
+            <header class="header">
+        <h2>Aquaculture</h2>
+            </header>
+            <div class ="aqua">
+        <p>Aquaculture is the controlled process of cultivating aquatic organisms, especially for human consumption. It’s a similar concept to agriculture, but with fish instead of plants or livestock. Aquaculture is also referred to as fish farming. The seafood that you find at your local grocery store is likely labeled as farmed fish. Aquaculture can happen all over the world, and it does: in coastal ocean waters, freshwater ponds and rivers, and even on land in tanks.</p>
+        
+        <h3>How does it work?</h3>
+        <p>The methods of aquaculture’s farm-to-table process can differ from species to species.
+            Generally, there are four stages of the production chain, starting in hatcheries and ending at the seafood counter in your grocery store.</p>
+
+        <p>Each of these stages can vary with respect to its effect on the environment and the quality and safety of the seafood they produce, which is why the Global Seafood Alliance administers the Best Aquaculture Practices (BAP) third-party certification program. In the past, fish farms have had issues with respect to these four aspects of aquaculture, and BAP seeks to improve the fish farming industry across the globe. This is the only certification program that covers every step of the supply chain.
+            You can be sure your seafood was farmed responsibly if it has the BAP logo on it!</p>
+
+        <p>The first stage in the aquaculture production chain is the hatchery. This is where the breeding of fish, hatching of eggs and rearing of fish through the early life stages happens. Once the animals are mature enough, they are transferred to the farm, where they are grown to harvest size, using feed produced at feed mills (another stage of aquaculture).
+            The fish are then transported to a processing facility, where they are packaged and sent to food retailers and grocery stores. That’s where you come in.</p>
+
+        <img decoding="async" class="wp-image-41611 size-large alignleft" src="https://www.aquaculturealliance.org/wp-content/uploads/2019/03/aquaculture_101_infograph_blog_001_bap_supplychain-1-1024x538.png" alt="What is Aquaculture" width="500" height="250" srcset="https://www.globalseafood.org/wp-content/uploads/2019/03/aquaculture_101_infograph_blog_001_bap_supplychain-1-1024x538.png 1024w, https://www.globalseafood.org/wp-content/uploads/2019/03/aquaculture_101_infograph_blog_001_bap_supplychain-1-300x158.png 300w, https://www.globalseafood.org/wp-content/uploads/2019/03/aquaculture_101_infograph_blog_001_bap_supplychain-1-768x403.png 768w, https://www.globalseafood.org/wp-content/uploads/2019/03/aquaculture_101_infograph_blog_001_bap_supplychain-1-960x504.png 960w, https://www.globalseafood.org/wp-content/uploads/2019/03/aquaculture_101_infograph_blog_001_bap_supplychain-1-400x210.png 400w, https://www.globalseafood.org/wp-content/uploads/2019/03/aquaculture_101_infograph_blog_001_bap_supplychain-1.png 1200w" sizes="(max-width: 500px) 100vw, 500px">
+
+        <p>The methods of aquaculture’s farm-to-table process can differ from species to species...</p>
+        
+        <h3>Why is it important?</h3>
+        <p>Given that overfishing of our oceans and other natural resources is continuously increasing year over year, humans need alternate sources for seafood to feed the planet’s ever-growing population. “Unfortunately, the days of the ocean’s natural productivity providing for the planet is over. Wild fish have been exploited for generations. Some estimate that the annual catch of edible marine protein has already passed its peak. The oceans cannot naturally provide the demand for seafood” (Positive Aquaculture Awareness). Aquaculture is the tool to fill in the gap of seafood supply.
+            Farming fish responsibly and sustainably is the solution to providing future generations with access to healthy and environmentally friendly protein options.</p>
+        <p>Not only is aquaculture necessary, it is also a sustainable option for consumers, especially in comparison to other farmed proteins. Seafood is highly resource efficient — it has the highest protein retention compared to chicken, pork and beef.
+            It also has the lowest feed conversion ratio among the same forms of protein. Aquaculture has lower greenhouse gas emissions than other types of farming.</p>
+        <p>With an anticipated 10 billion people expected to inhabit the planet by 2050, the demand for animal protein will increase by 52 percent. Sustainable and healthy approaches to feeding the world are more critical than ever before. In order to sustainably feed the world’s growing population with a healthy, lean protein, aquaculture’s role is of the utmost importance.
+            The primary responsibility of aquaculture is to efficiently complement wild-caught fish options to increase the amount of seafood available worldwide</p>
+        <p>Aquaculture has the potential to improve the health of our planet and the health of our population,
+            as long as it is done in a manner that is environmentally friendly, socially responsible, and considers food safety and animal welfare.</p>
+        <img decoding="async" loading="lazy" class="wp-image-41063 size-large alignnone" src="https://www.aquaculturealliance.org/wp-content/uploads/2019/03/Aquaculture-101_March-01-1-1024x791.png" alt="What is aquaculture?" width="800" height="400" srcset="https://www.globalseafood.org/wp-content/uploads/2019/03/Aquaculture-101_March-01-1-1024x791.png 1024w, https://www.globalseafood.org/wp-content/uploads/2019/03/Aquaculture-101_March-01-1-300x232.png 300w, https://www.globalseafood.org/wp-content/uploads/2019/03/Aquaculture-101_March-01-1-768x594.png 768w, https://www.globalseafood.org/wp-content/uploads/2019/03/Aquaculture-101_March-01-1-960x742.png 960w, https://www.globalseafood.org/wp-content/uploads/2019/03/Aquaculture-101_March-01-1-1920x1484.png 1920w, https://www.globalseafood.org/wp-content/uploads/2019/03/Aquaculture-101_March-01-1-400x309.png 400w, https://www.globalseafood.org/wp-content/uploads/2019/03/Aquaculture-101_March-01-1-1280x989.png 1280w" sizes="(max-width: 800px) 100vw, 800px">
+
+
+        <p>Given that overfishing of our oceans and other natural resources is continuously increasing year over year...</p>
+    </div>
+    </section>
+
+    <section id="foodproduction">
+        
+        
+
+    </section>
+
+
+
+
+
+
+
+
+    
+    <section id="processing">
+        <header class="header">
+        <h2>Post-harvest activities for crops</h2>
+    </header>
+    <div class="pros">
+        <p>Post-harvest activities for crops are crucial steps that occur after the harvesting process, ensuring the preservation and quality of the produce. Common practices include:</p>
+        <ul>
+            <li><b>Canning:</b>This method involves preserving fruits and vegetables in airtight containers by heat processing. It helps prevent spoilage and maintains the nutritional content of the produce.</li>
+            <li><b>Freezing:</b> Freezing is a widely used technique to preserve the freshness of fruits and vegetables. It involves rapidly lowering the temperature of the produce, inhibiting the growth of microorganisms and enzymes responsible for spoilage.</li>
+            <li><b>Packaging:</b> Proper packaging protects crops from physical damage, contamination, and dehydration. Packaging materials can range from traditional options like bags and crates to modern, vacuum-sealed containers.</li>
+            <li><b>Drying:</b> Drying removes moisture from crops, preventing the growth of mold and bacteria. Sun drying, air drying, and mechanical drying methods are employed to extend the shelf life of various crops.</li>
+        </ul>
+        <h2>Post-Harvest Activities for Meat and Milk:</h2>
+        <p>After harvesting (slaughtering for meat and milking for milk), there are specific post-harvest activities for animal products:
+        </p>
+        <ul>
+            <li><b>Meat Storage and Packaging:</b> After slaughter, meat undergoes a chilling or freezing process to maintain quality. Packaging involves vacuum-sealing or using modified atmosphere packaging to extend shelf life and prevent bacterial contamination.
+            </li>
+            <li><b>Milk Storage and Packaging:</b> Milk is rapidly cooled after milking to inhibit bacterial growth and maintain freshness. It is then stored in refrigerated tanks before undergoing processes like pasteurization or homogenization. Milk packaging involves containers such as cartons, bottles, or pouches that ensure hygiene and prevent contamination.</li>
+            <li><b>Cold Chain Management:</b> Both crops and animal products often go through a cold chain to maintain the required temperature from harvest to consumption. This involves refrigerated transportation, storage, and distribution to preserve quality and safety.</li>
+            <li><b>Quality Control:</b> Rigorous quality control measures are implemented to ensure that both crops and animal products meet safety and regulatory standards. This includes inspections, testing, and adherence to hygiene practices.
+                These post-harvest activities play a vital role in ensuring that crops, meat, and milk reach consumers in a safe, nutritious, and appealing condition while minimizing losses due to spoilage or deterioration.</li>
+        </ul>
+    </div>
+        
+    </section>
+
+
+    <section id="distribution">
+        <header class="header">
+        <h2>Distribution and Logistics</h2>
+    </header>
+    <div class="dist">
+        <h2>Transportation of Crops:</h2>
+        <p>Transportation of harvested crops involves several key steps to ensure the efficient and timely delivery of agricultural products to consumers.</p>
+        <ul>
+            <li><b>Harvesting and Initial Handling:</b> After crops are harvested, they undergo initial processing and handling at the farm. This may include cleaning, sorting, and packaging.</li>
+            <li><b>Loading:</b>Crops are loaded onto transport vehicles, which can range from trucks to specialized refrigerated containers, depending on the type of crop and its perishability.</li>
+            <li><b>Transportation Modes:</b>Crops can be transported by various means, including trucks, trains, ships, or airplanes. The mode of transportation depends on factors such as the distance to the market, the type of crop, and the required transport conditions (e.g., refrigeration for perishable items).</li>
+            <li><b>Cold Chain Management:</b> For perishable crops, maintaining a cold chain is crucial. Refrigerated trucks or containers are used to control temperature and humidity, preserving the freshness and quality of the produce during transit.</li>
+            <li><b>Unloading and Storage:</b> Upon reaching the destination, crops are unloaded and may be stored temporarily in warehouses or distribution centers before being sent to retailers or processing facilities.
+            </li>
+        </ul>
+        <h2>Transportation of Animal Meat:</h2>
+        <ul>
+            <li><b>Transportation of Animal Meat:</b> After animals are slaughtered, the meat undergoes processing, including cutting, packaging, and sometimes cooking or curing.
+            </li>
+            <li><b>Cold Storage:</b> Meat is stored in refrigerated or frozen conditions to maintain freshness and prevent bacterial growth. This can occur at the processing facility or specialized cold storage facilities.</li>
+            <li><b>Packaging:</b> Meat is packaged securely to prevent contamination and maintain quality. Vacuum-sealed packaging and modified atmosphere packaging are common methods.</li>
+            <li><b>Loading:</b> Packaged meat is loaded onto refrigerated trucks for transportation. For longer distances or international shipments, sea or air transport may be used.
+            </li>
+            <li><b>Distribution Centers:</b> Meat may pass through distribution centers where it's sorted and reloaded onto trucks for final delivery to retailers or other points of sale.</li>
+            <li><b>Retail Distribution:</b> Meat products are delivered to grocery stores, restaurants, or other retail outlets. In some cases, they may also go to further processing facilities for additional preparation.</li>
+            
+        </ul>
+        <p>Throughout both processes, strict quality control measures are implemented to ensure that products meet safety and regulatory standards. The efficiency of transportation and distribution networks is crucial for minimizing spoilage, reducing waste, and delivering fresh and safe products to consumers.</p>
+        
+        <p>Crops can be transported by various means, including trucks, trains, ships, or airplanes...</p>
+    </div>
+    </section>
+
+    
+    <section id="regulation">
+        <header class="header">
+        <h2>Regulation and Quality Control</h2></header>
+        <div class= "law">
+        <p>Governmental agencies play a crucial role in ensuring the safety and quality of crops, meat, and other harvested products consumed by the public. The specific procedures and regulations may vary by country, but generally, these agencies are responsible for enforcing standards and conducting inspections to safeguard public health. Here's an overview of how quality checks are typically done:</p>
+            <p>Governments establish regulatory standards and guidelines for the production, handling, and distribution of crops and animal products. These standards cover various aspects, including hygiene, labeling, storage, and transportation.
+            </p>
+            <ul>
+                <li><b>Inspections at Farms and Processing Facilities:</b>Regulatory agencies conduct regular inspections at farms, processing facilities, and distribution centers. These inspections assess compliance with established standards, including hygiene practices, proper use of pesticides or veterinary drugs, and adherence to good agricultural and manufacturing practices.</li>
+                <li><b>Sampling and Testing:</b>Samples of crops and animal products are routinely collected for laboratory testing. This testing can include analyses for contaminants, residues, pathogens, and nutritional content. For example, meat might be tested for microbial contamination, chemical residues, and proper labeling.</li>
+                <li><b>Traceability Systems:</b>Many governments require traceability systems to be in place, allowing authorities to track products from the farm to the consumer. This helps identify and address issues quickly, such as in the case of a foodborne illness outbreak.</li>
+                <li><b>Certification Programs:</b>Some countries implement certification programs that involve third-party certification bodies to verify that farms and processing facilities meet specific quality and safety standards. Products with certification labels indicate that they have undergone additional scrutiny and adhere to higher standards.</li>
+                <li><b>Import and Export Regulations:</b>Governments also regulate the import and export of agricultural and food products. Imported products are subject to inspections to ensure they meet the country's safety and quality standards. Likewise, exported products must comply with the standards of the destination country.</li>
+                <li><b>Recall Procedures:</b>In the event of a product safety concern or contamination, governments have recall procedures in place. This involves removing the affected products from the market and notifying the public to prevent consumption.</li>
+                <li><b>Public Awareness and Education:
+                </b>Governments often engage in public awareness and education campaigns to inform consumers about safe food handling practices and the importance of purchasing products from reputable sources.
+            </li>
+            </ul> 
+            <p>By implementing these measures, governments aim to prevent foodborne illnesses, protect public health, and maintain consumer confidence in the safety and quality of the food supply. Regular updates and adjustments to regulations are made based on new scientific findings and emerging risks.</p>
+        </div>
+    </section>
+
+    
+    <section id="research"><header class="header">
+        <h2>Research and Development</h2></header>
+        <div class="reac">
+        <ul>
+            <li><b>Organic Farming Practices:</b>Ongoing research investigates the benefits and challenges of organic farming systems. This includes studying crop rotations, cover cropping, and intercropping techniques that enhance soil fertility and reduce the reliance on synthetic inputs.</li>
+            <li><b>Biofertilizers:</b>Researchers are exploring the use of biofertilizers, which consist of beneficial microorganisms like bacteria and fungi. These microorganisms can enhance nutrient availability to plants, promote soil health, and improve overall crop yields.
+            </li>
+            <li><b>Organic Amendments:
+            </b>Studies are focusing on the use of organic amendments such as compost, manure, and green manure to enrich soil organic matter, improve soil structure, and enhance water retention. These amendments contribute to sustainable soil fertility.</li>
+            <li><b>Precision Agriculture:</b>Precision agriculture involves using technology, such as sensors and data analytics, to optimize the use of resources. Researchers are exploring how precision agriculture can improve the efficiency of organic and sustainable farming practices, leading to increased yields.</li>
+            <li><b>Agroecology:</b>Agroecological approaches integrate ecological principles into agricultural systems. Research in agroecology aims to develop farming methods that mimic natural ecosystems, enhancing biodiversity, nutrient cycling, and pest control while promoting sustainable crop production.</li>
+            <li><b>Nutrient Management:</b>Studies are investigating innovative nutrient management strategies, including the use of slow-release fertilizers, to provide crops with a steady supply of nutrients over time, reducing nutrient runoff and environmental pollution.</li>
+            <li><b>Cover Crops and Intercropping:
+            </b>Research explores the benefits of cover crops and intercropping in organic systems. These practices contribute to soil conservation, weed suppression, and increased biodiversity, leading to more resilient and productive agricultural systems.</li>
+            <li><b>Genetic Improvement of Organic Crops:</b>Efforts are underway to develop crop varieties specifically adapted to organic farming conditions. These varieties may exhibit traits such as enhanced nutrient uptake, pest resistance, and tolerance to environmental stressors.</li>
+            <li><b>Waste Recycling and Circular Agriculture:</b>Researchers are examining ways to recycle agricultural waste and by-products to create circular agricultural systems. This includes the reuse of crop residues, waste from food processing, and other organic materials to enhance soil fertility.</li>
+            <li><b>Agroforestry:</b>Agroforestry integrates trees and shrubs into agricultural landscapes. Ongoing research explores the benefits of agroforestry systems, such as improved soil health, enhanced water retention, and increased biodiversity.
+                These research efforts collectively aim to develop holistic and sustainable approaches to food production that prioritize environmental stewardship, soil health, and long-term agricultural resilience. The findings from these studies contribute to the ongoing evolution of best practices in organic and eco-friendly farming.</li>
+            
+        </ul>
+    </div>
+        <!--<h3>Organic Farming Practices:</h3>
+        <ul>
+            <li>Ongoing research investigates the benefits and challenges of organic farming systems...</li>
+           
+        </ul>
+    
+        <h3>Vertical Farming:</h3>
+        <p>In vertical farming, crops are grown in vertically stacked layers or vertically inclined surfaces...</p>
+    -->
+    </section>
+    <section id="morden">
+        <header class="header">
+            <h2>Mordern Farming Technology</h2>
+        </header>
+        <div class="mor">
+        <ul>
+            <li><b>Vertical Farming:</b>In vertical farming, crops are grown in vertically stacked layers or vertically inclined surfaces. This method often employs controlled-environment agriculture (CEA) technologies, such as hydroponics or aeroponics, to optimize resource use, increase crop yields, and enable year-round production. Vertical farms can be located in urban areas, reducing transportation distances.</li>
+            <br>
+            <img src="https://images.squarespace-cdn.com/content/v1/63064607eb816a4d50027fd1/517ce9c1-4e39-46b0-b152-796383cb6b6d/eden-green-vertical-farm-facility.jpg">
+            <br>
+            <li><b>Aquaponics:
+            </b>Aquaponics is a sustainable farming method that combines aquaculture (fish farming) with hydroponics. The nutrient-rich water from fish tanks is used to fertilize plants, and the plants, in turn, help purify the water for the fish. This integrated system maximizes resource efficiency and reduces environmental impact.</li>
+            <br>
+            <img src="data:image/jpeg;base64,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">
+            <br>
+            <li><b>Hydroponics:</b>Hydroponic systems involve growing plants without soil, with their roots submerged in nutrient-rich water. This method allows for precise control of nutrient levels, water usage, and environmental conditions, resulting in faster growth and higher yields compared to traditional soil-based farming.</li>
+            <br>
+            <img src="data:image/jpeg;base64,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">
+            <br>
+            <li><b>Aeroponics:</b>Aeroponics is a variation of hydroponics where plants are suspended in air, and nutrient-rich mist is periodically sprayed onto their roots. This method provides increased oxygenation to the roots and efficient nutrient absorption, promoting rapid plant growth.</li>
+            <br>
+            <img src="data:image/jpeg;base64,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">
+            <br>
+            <li><b>Container Farming:</b>Container farming involves growing crops in shipping containers equipped with controlled-environment technologies. This method is mobile and can be set up in various locations, providing flexibility and the ability to bring farming closer to consumers.
+            </li>
+            <br>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcxoEwgy7aDrSzGfJudpCsIdJVzT_rTN50jg&usqp=CAU">
+        </ul>
+    </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 EVOARG - Food Resource Production</p>
+    </footer>
+
+    
+    <script>
+        const mainHeading = document.getElementById('main-heading');
+    
+        mainHeading.addEventListener('mouseover', () => {
+            mainHeading.style.animation = 'slideInOut 1s ease-in-out';
+        });
+    
+        mainHeading.addEventListener('animationend', () => {
+            mainHeading.style.animation = '';
+        });
+    
+        function showPage(pageId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+    
+            // Show the selected section
+            const selectedSection = document.getElementById(pageId);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+        }
+    
+        // Show the home page by default
+        showPage('home');
+    </script>
+    
+</body>
+
+</html>
